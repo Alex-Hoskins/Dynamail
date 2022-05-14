@@ -6,10 +6,11 @@ import React, { useState } from "react";
 function App() {
   const[text, setText] = useState({
     name :'{name}',
+    myName: '{myName}',
     company : '{company}',
     role: '{role}',
     date:'{date}',
-    whatYouLike:'someone that can implement and follow engineering best practices, including testing and continuous integration,I had to reach out!'
+    whatYouLike:'someone that can implement and follow engineering best practices, including testing and continuous integration, I had to reach out!'
   })
   function handleChanges(e){
     setText({
@@ -21,13 +22,21 @@ function App() {
     <div className="App">
       <h1>Dynamail</h1>
       <form action="">
-        <label>Name</label>
+        <label>To Name</label>
         <input 
           name='name'
           type="text" 
           value={text.name}
           onChange={handleChanges}
           placeholder="Enter name" 
+        />
+        <label>My Name</label>
+        <input 
+          name='myName'
+          type="text" 
+          value={text.myName}
+          onChange={handleChanges}
+          placeholder="Enter your name" 
         />
         <label>Company</label>
           <input 
@@ -65,7 +74,7 @@ function App() {
       <div className="emailBody">
         <p>Hello {text.name},<br/>
         <br/>
-        I’m Alex Hoskins, nice to “virtually” meet you!
+        I’m {text.myName}, nice to “virtually” meet you!
         <br/><br/>
         I’m fascinated by the problems the engineering team is solving at {text.company} — as soon as I saw that you are looking for {text.whatYouLike}!
         <br/><br/>
