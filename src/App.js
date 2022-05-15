@@ -5,12 +5,12 @@ import React, { useState } from "react";
 
 function App() {
   const[text, setText] = useState({
-    name :'{name}',
-    myName: '{myName}',
-    company : '{company}',
-    role: '{role}',
-    date:'{date}',
-    whatYouLike:'someone that can implement and follow engineering best practices, including testing and continuous integration, I had to reach out!'
+    name :'',
+    myName: '',
+    company : '',
+    role: '',
+    date:'',
+    whatYouLike:''
   })
   function handleChanges(e){
     setText({
@@ -72,15 +72,15 @@ function App() {
           />
       </form>
       <div className="emailBody">
-        <p>Hello {text.name},<br/>
+        <p>Hello {text.name ? text.name : <span className="red">NAME</span>},<br/>
         <br/>
-        I’m {text.myName}, nice to “virtually” meet you!
+        I’m {text.myName ? text.myName : <span className="red">YOUR NAME</span>}, nice to “virtually” meet you!
         <br/><br/>
-        I’m fascinated by the problems the engineering team is solving at {text.company} — as soon as I saw that you are looking for {text.whatYouLike}!
+        I’m fascinated by the problems the engineering team is solving at {text.company ? text.company : <span className="red">COMPANY NAME</span>} — as soon as I saw that you are looking for {text.whatYouLike ? text.whatYouLike : <span className="red">WHAT YOU LIKE ABOUT THE COMPANY</span>}!
         <br/><br/>
-        To cut directly to the chase, I really think I am your team’s next {text.role}. I bring a strong background in React/Redux, HTML/CSS, JS, communication within a professional setting, as well as experience developing in agile methodology on fully remote teams. I am able to work independently on projects with little to no guidance required and have a high standard of quality, attention to detail, and professionalism. I applied directly through your site, but am attaching my resume to this email as well for reference.
+        To cut directly to the chase, I really think I am your team’s next {text.role ? text.role : <span className="red">ROLE</span>}. I bring a strong background in React/Redux, HTML/CSS, JS, communication within a professional setting, as well as experience developing in agile methodology on fully remote teams. I am able to work independently on projects with little to no guidance required and have a high standard of quality, attention to detail, and professionalism. I applied directly through your site, but am attaching my resume to this email as well for reference.
         <br/><br/>
-        I would love a chance to chat more about this team and what you are looking for in your next {text.role} hire. Are you free for a quick phone call this week, maybe {text.date}? I hope to hear back from you soon.
+        I would love a chance to chat more about this team and what you are looking for in your next {text.role ? text.role : <span className="red">ROLE</span>} hire. Are you free for a quick phone call this week, maybe {text.date ? text.date : <span className="red">DATE</span>}? I hope to hear back from you soon.
         <br/><br/>
         All the best,
         </p> 
